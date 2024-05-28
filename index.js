@@ -1,8 +1,10 @@
 const express = require("express");
 
-const { users } = require("./data/users.json");
 
+const userRouter = require("./routes/Users.js");
+const booksRouter = require("./routes/Books.js");
 const app = express();
+
 
 const PORT = 8081;
 
@@ -10,13 +12,15 @@ app.use(express.json());
 
 
 
-app.get("/", (req, res) => {
+http: app.get("/", (req, res) => {
     res.status(200).json({
         message: "server is up and running :-)",
     });
 });
 
 
+app.use("/users", userRouter);
+app.use("/books", booksRouter);
 /*
 Route >> /users
 Method>> GET
@@ -25,12 +29,8 @@ Access:Public
 parameter:none
 */
 
-app.get("/users", (re, res) => {
-    res.status(200).json({
-        success: true,
-        data: users,
-    });
-});
+
+
 
 app.get("*", (req, res) => {
     res.status(404).json({

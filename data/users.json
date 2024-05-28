@@ -1,6 +1,12 @@
-{
-    "users":
+[
     {
-    "id":"101"
+        "users": {
+            "id": "1",
+            "name": "Basavaraj",
+            "surname": "ghar",
+            "email": "basava@gmail.com",
+            "subscriptionType": "premium",
+            "subscriptionDate": "01/01/2022"
+        }
     }
-}
+]
