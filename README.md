@@ -65,3 +65,66 @@ GET:Get all the books with their fines
 
 ## npm init
 ## npm i nodemon --save-dev
+
+
+
+
+mvc architecture
+
+>> m -> model
+>> v -> view
+>> c -> controllers(brain)
+
+schema >>
+id: string
+name: string
+age: number
+gender: chat || varchar
+
+model >>
+id: 123
+name: basava
+age: 23
+gender: 'm'
+
+
+
+Foreign key:
+>> Referential Integrety
+
+user table                           book table
+issuedbook : 2(foreign key here)     issuedbook: 2(primary key)
+
+
+
+
+
+<!-- 
+
+router.get("/issued/by-user", (req, res) => {
+    const usersWithTheIssuedBook = users.filter((each) => {
+        if (each.issuedBooks) return each;
+    });
+    const issuedBooks = [];
+    usersWithTheIssuedBook.forEach((each) => {
+        const book = Books.find((book) => { book.id = each.issuedBook });
+        book.issuedBy = each.name
+        book.issuedDate = each.issuedDate;
+        book.returnDate = each.returnDate;
+        issuedBooks.push(Books);
+    });
+    if (issuedBooks.length === 0) {
+        return res.status(404).json({
+            success: false,
+            message: "no books are been issued yet",
+        })
+    }
+    return res.status(200).json({
+        success: true,
+        message: "users with the issued books..",
+        data: issuedBooks,
+    });
+});
+
+
+ -->
