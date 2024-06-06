@@ -8,7 +8,7 @@ Description >> Get all users
 Access:Public
 parameter:none
 */
-
+// router.use(express.json());
 
 router.get("/", (req, res) => {
     res.status(200).json({
@@ -51,7 +51,7 @@ parameter(params):none
 */
 
 router.post("/", (req, res) => {
-    const { id, name, surname, email, subscriptionType, subscriptionDate } = req.body
+    const { id, name, surname, email, subscriptionType, subscriptionDate } = req.body;
     const user = users.find((each) => each.id === id);
     if (user) {
         return res.status(404).json({
